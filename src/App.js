@@ -1,33 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+
+import { getForSale } from "./api/index";
+import Listings from "./components/Listings";
 
 const App = () => {
-  const [data, setData] = useState({ hits: [] });
+  const [dataForSale, setDataForSale] = useState([]);
+  const [dataLength, setDataLength] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(10);
+  
+  
+  const ITEMS_PER_PAGE = 10; // only show 10 items per page
+
+  const totalPages = Math.ceil(dataLength / ITEMS_PER_PAGE);
 
   useEffect(() => {
-    const fetchData = async () =>{
-      try {
-        const {data: response} = await axios.get('https://hn.algolia.com/api/v1/search?query=redux');
-        setData(response);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
-
-    fetchData();
+    fetchForSale();
   }, []);
-  
-console.log(data)
 
+  const fetchForSale = () => {
+    getForSale()
+      .then((data) => {
+        setDataForSale(data.listings);
+        setDataLength(data.listings.length);
+      })
+      .catch((err) => console.log(err.message));
+  };
+  console.log("propForSale: ", dataForSale);
+  console.log("dataLength: ", dataLength);
+    
   return (
-    <ul>
-      {data.hits.map(item => (
-        <li key={item.objectID}>
-          <a href={item.url}>{item.title}</a>
-        </li>
-      ))}
-    </ul>
-  )
-}
+    <>
+    <Listings dataForSale={dataForSale} visibleItems={visibleItems} />
+      {/* {visibleItems < items.length && (
+        <div className="btn-container">
+          <button onClick={loadMore}>Load More</button>
+        </div>
+      )} */}
+
+    </>
+  );
+};
 
 export default App;

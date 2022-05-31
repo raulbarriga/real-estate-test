@@ -1,0 +1,78 @@
+/* create-react-app's css reset */
+/* had to add the .vscode folder for this since it gives an error initially */
+@import-normalize;
+
+/* Listings CSS Start*/
+.container-fluid .row .col-md-12.align-items-end:nth-child(1) {
+  padding-top: 1rem;
+}
+
+.container-fluid .row .col-md-12.align-items-end .form-group {
+  margin-bottom: 0;
+}
+
+.container-fluid
+  .row
+  .col-md-12.align-items-end
+  .form-group
+  .form-field.search-box
+  form {
+  position: relative;
+  display: inline-flex;
+  width: 50%;
+}
+
+.container-fluid
+  .row
+  .col-md-12.align-items-end
+  .form-group
+  .form-field.search-box
+  form
+  input.form-control {
+  width: 100%;
+}
+
+.container-fluid
+  .row
+  .col-md-12.align-items-end
+  .form-group
+  .form-field.search-box
+  form
+  button {
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  border-top: 1px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
+  border-right: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.container-fluid #filter-and-sort-row {
+  padding-top: 1rem;
+}
+
+.container-fluid #filter-and-sort-row #filter-btn {
+  display: none;
+}
+
+.container-fluid
+  #filter-and-sort-row
+  .dropdown-menu.dropdown-menu-right
+  button:hover:focus {
+  background-color: inherit;
+  color: inherit;
+  outline: none;
+}
+
+.container-fluid
+  #filter-and-sort-row
+  .dropdown-menu.dropdown-menu-right
+  button.dropdown-item {
+  cursor: pointer;
+}
+
+/* Listing CSS */
+
+
+/* Listings CSS End */
