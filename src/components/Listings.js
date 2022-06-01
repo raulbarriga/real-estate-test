@@ -2,11 +2,11 @@ import React from 'react'
 
 import Card from './Card/Card'
 
-const Listings = ({dataForSale, visibleItems}) => {
+const Listings = ({currentProperties, propertiesPerPage}) => {
   return (
     <div id="card-columns" className="col-md">
         <div className="row">
-        {dataForSale.slice(0, visibleItems).map((property, index) => (
+        {currentProperties.slice(0, propertiesPerPage).map((property, index) => (
           <Card property={property} key={index} />
         ))} 
         </div>

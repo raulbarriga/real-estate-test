@@ -20,3 +20,10 @@ const ITEMS_PER_PAGE = 5;
 Math.ceil(totalItems / ITEMS_PER_PAGE);
 ```
 -- In this example, you'll have a total of 3 pagination buttons then (13/5 = 2.6, rounded up = 3 pages)
+
+## from udemy course on pagination:
+- if our pageSize is 10 (i.e. show 10 items per page) & we only have 6 items, then pagination isn't even gonna display
+
+- have a currentPage variable: `Number(pageNumber || 1)`
+- have a total count of items (the api already gives a length property for this #): `count = property.length`
+- 

@@ -2,23 +2,25 @@ import axios from "axios";
 
 const url = "https://realty-in-us.p.rapidapi.com/properties/list-for-sale";
 
-const options = {
-//   method: "GET",
-//   url: url,
-  params: {
-    state_code: "CA",
-    city: "Redwood City",
-    offset: "0",
-    limit: "200",
-    sort: "relevance",
-  },
-  headers: {
-    "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
-    "X-RapidAPI-Key": process.env.REACT_APP_REALTY_API_KEY,
-  },
-};
 
-export const getForSale = async () => {
+
+export const getForSale = async (city, state) => {
+  const options = {
+    //   method: "GET",
+    //   url: url,
+      params: {
+        state_code: state,
+        city: city,
+        offset: "0",
+        limit: "200",
+        sort: "relevance",
+      },
+      headers: {
+        "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
+        "X-RapidAPI-Key": process.env.REACT_APP_REALTY_API_KEY,
+      },
+    };
+
   try {
     const { data } = await axios.get(url, options);
     // console.log(data);
